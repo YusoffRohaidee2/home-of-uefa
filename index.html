@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Of UEFA - Sports Hub Official</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #0b0e14;
+            --card-bg: #161b22;
+            --accent-blue: #0052b4;
+            --neon-blue: #00d2ff;
+            --text-main: #ffffff;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            background: linear-gradient(180deg, rgba(11,14,20,1) 0%, rgba(22,27,34,0.8) 100%);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-section img {
+            height: 38px;
+            filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.3));
+        }
+
+        .brand-title h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: linear-gradient(45deg, #ffffff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-title p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--neon-blue));
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        /* MAIN CONTENT AREA */
+        main {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* DESCRIPTION BANNER */
+        .promo-banner {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .promo-banner h2 {
+            font-size: 1.05rem;
+            color: var(--neon-blue);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .promo-banner p {
+            font-size: 0.8rem;
+            color: #d1d5db;
+            line-height: 1.4;
+            max-width: 850px;
+            margin: 0 auto 10px auto;
+        }
+
+        .competitions-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: rgba(0, 82, 180, 0.2);
+            border: 1px solid var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* LIVE STREAM SECTION */
+        .stream-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .channel-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .channel-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.78rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .channel-btn:hover {
+            border-color: var(--neon-blue);
+        }
+
+        .channel-btn.active {
+            border-color: var(--neon-blue);
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--neon-blue);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-color);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* SCHEDULE ACCORDION STYLES */
+        .schedule-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: none;
+            outline: none;
+            padding: 14px 20px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(0, 210, 255, 0.08);
+        }
+
+        .accordion-header i.chevron {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+        }
+
+        .accordion-header.active i.chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-content.show {
+            max-height: 3000px; /* Cukup besar untuk muat senarai */
+            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+            padding: 15px 20px 20px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .schedule-subgroup {
+            margin-top: 15px;
+        }
+
+        .schedule-subgroup h4 {
+            color: var(--neon-blue);
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .schedule-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .schedule-table tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* SCORES CARDS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .match-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .match-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            width: 35%;
+            text-align: center;
+        }
+
+        .team i {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+        }
+
+        .team span {
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .score-time {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--neon-blue);
+            background: rgba(0,0,0,0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .badge-live {
+            background: #ff0055;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        footer strong {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-tabs {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .schedule-table th, .schedule-table td {
+                padding: 6px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <div class="brand-section">
+                <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/UEFA_full_logo.svg" alt="UEFA Logo">
+                <div class="brand-title">
+                    <h1>HOME OF UEFA</h1>
+                    <p>By Sports Hub Official | Football Media Center</p>
+                </div>
+            </div>
+
+            <nav class="nav-tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'stream')">
+                    <i class="fa-solid fa-tv"></i> Live Stream
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'schedule')">
+                    <i class="fa-solid fa-calendar-days"></i> Schedule
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'scores')">
+                    <i class="fa-solid fa-square-poll-vertical"></i> Scores
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main>
+        
+        <!-- DESCRIPTION BANNER -->
+        <section class="promo-banner">
+            <h2>🏆 ALL THE UEFA ACTION LIVE HERE!</h2>
+            <p>Don't miss a single goal, drama, or historic match. From the elite stars of the UEFA Champions League to the rising talents of the UEFA Youth League, we’ve got you covered! Your front-row seat to European football starts right here! 📺⚡</p>
+            <div class="competitions-tags">
+                <span class="tag">🌟 UEFA Champions League</span>
+                <span class="tag">⚔️ UEFA Europa League</span>
+                <span class="tag">🛡️ UEFA Conference League</span>
+                <span class="tag">👑 UEFA Super Cup</span>
+                <span class="tag">✨ UEFA Youth League</span>
+            </div>
+        </section>
+
+        <!-- TAB 1: LIVE STREAM -->
+        <section id="stream" class="tab-content active">
+            <div class="stream-wrapper">
+                <div class="channel-selector">
+                    <button class="channel-btn active" onclick="switchChannel('https://logic.icelanders.st/embed/tntsports1-uk', this)">
+                        <i class="fa-solid fa-play"></i> TNT Sports 1
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel('https://logic.icelanders.st/embed/tntsports2-uk', this)">
+                        <i class="fa-solid fa-play"></i> TNT Sports 2
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel('https://logic.icelanders.st/embed/tntsports3-uk', this)">
+                        <i class="fa-solid fa-play"></i> TNT Sports 3
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel('https://logic.icelanders.st/embed/tntsports4-uk', this)">
+                        <i class="fa-solid fa-play"></i> TNT Sports 4
+                    </button>
+                </div>
+
+                <div class="video-container">
+                    <iframe id="videoPlayer" src="https://logic.icelanders.st/embed/tntsports1-uk" frameborder="0" scrolling="no" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: SCHEDULE -->
+        <section id="schedule" class="tab-content">
+            <div class="schedule-accordion">
+                
+                <!-- CHAMPIONS LEAGUE -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🌟 UEFA Champions League 2026/27</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        
+                        <div class="schedule-subgroup">
+                            <h4>📌 Qualifying Rounds & Play-offs</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium</th></tr>
+                                <tr><td>1st Qualifying (Leg 1)</td><td>July 7, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>1st Qualifying (Leg 1)</td><td>July 8, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>1st Qualifying (Leg 2)</td><td>July 14, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>1st Qualifying (Leg 2)</td><td>July 15, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 1)</td><td>July 21, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 1)</td><td>July 22, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 2)</td><td>July 28, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 2)</td><td>July 29, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 1)</td><td>August 4, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 1)</td><td>August 5, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 2)</td><td>August 11, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 1)</td><td>August 18, 2026</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 1)</td><td>August 19, 2026</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 2)</td><td>August 25, 2026</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 2)</td><td>August 26, 2026</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>⚽ League Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>League Phase Draw</td><td>August 27, 2026</td><td>12:00 AM</td><td>Grimaldi Forum, Monaco</td></tr>
+                                <tr><td>Matchday 1 (Day 1)</td><td>September 8, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 1 (Day 2)</td><td>September 9, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 1 (Day 3)</td><td>September 10, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2 (Day 1)</td><td>October 13, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2 (Day 2)</td><td>October 14, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3 (Day 1)</td><td>October 20, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3 (Day 2)</td><td>October 21, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4 (Day 1)</td><td>November 3, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4 (Day 2)</td><td>November 4, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5 (Day 1)</td><td>November 24, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5 (Day 2)</td><td>November 25, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6 (Day 1)</td><td>December 8, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6 (Day 2)</td><td>December 9, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 7 (Day 1)</td><td>January 19, 2027</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 7 (Day 2)</td><td>January 20, 2027</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 8 (Simultaneous)</td><td>January 27, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>🥊 Knockout Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>Knockout Play-offs (Leg 1)</td><td>February 16, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Knockout Play-offs (Leg 1)</td><td>February 17, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Knockout Play-offs (Leg 2)</td><td>February 23, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Knockout Play-offs (Leg 2)</td><td>February 24, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 1)</td><td>March 9, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 1)</td><td>March 10, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 2)</td><td>March 16, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 2)</td><td>March 17, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 1)</td><td>April 6, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 1)</td><td>April 7, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 2)</td><td>April 13, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 2)</td><td>April 14, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 1)</td><td>April 27, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 1)</td><td>April 28, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 2)</td><td>May 4, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 2)</td><td>May 5, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td><strong>Final</strong></td><td><strong>June 5, 2027</strong></td><td><strong>3:00 AM</strong></td><td><strong>Estadio Metropolitano, Madrid, Spain</strong></td></tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- EUROPA LEAGUE -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>⚔️ UEFA Europa League 2026/27</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        
+                        <div class="schedule-subgroup">
+                            <h4>📌 Qualifying Rounds & Play-offs</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium</th></tr>
+                                <tr><td>1st Qualifying (Leg 1)</td><td>July 9, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>1st Qualifying (Leg 2)</td><td>July 16, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 1)</td><td>July 23, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 2)</td><td>July 30, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 1)</td><td>August 6, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 2)</td><td>August 13, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 1)</td><td>August 20, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 2)</td><td>August 27, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>⚽ League Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>League Phase Draw</td><td>August 28, 2026</td><td>7:00 PM</td><td>Grimaldi Forum, Monaco</td></tr>
+                                <tr><td>Matchday 1 (Day 1)</td><td>September 16, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 1 (Day 2)</td><td>September 17, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2</td><td>October 15, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3</td><td>October 22, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4</td><td>November 5, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5</td><td>November 26, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6</td><td>December 10, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 7</td><td>January 21, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 8 (Simultaneous)</td><td>January 28, 2027</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>🥊 Knockout Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>Knockout Play-offs (Leg 1)</td><td>February 18, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Knockout Play-offs (Leg 2)</td><td>February 25, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 1)</td><td>March 11, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 2)</td><td>March 18, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 1)</td><td>April 8, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 2)</td><td>April 15, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 1)</td><td>April 29, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 2)</td><td>May 6, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td><strong>Final</strong></td><td><strong>May 26, 2027</strong></td><td><strong>3:00 AM</strong></td><td><strong>Waldstadion, Frankfurt, Germany</strong></td></tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CONFERENCE LEAGUE -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🛡️ UEFA Conference League 2026/27</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        
+                        <div class="schedule-subgroup">
+                            <h4>📌 Qualifying Rounds & Play-offs</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium</th></tr>
+                                <tr><td>1st Qualifying (Leg 1)</td><td>July 9, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>1st Qualifying (Leg 2)</td><td>July 16, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 1)</td><td>July 23, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>2nd Qualifying (Leg 2)</td><td>July 30, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 1)</td><td>August 6, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>3rd Qualifying (Leg 2)</td><td>August 13, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 1)</td><td>August 20, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Play-off Round (Leg 2)</td><td>August 27, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>⚽ League Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>League Phase Draw</td><td>August 28, 2026</td><td>8:00 PM</td><td>Grimaldi Forum, Monaco</td></tr>
+                                <tr><td>Matchday 1</td><td>October 15, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2</td><td>October 22, 2026</td><td>12:45 AM / 3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3</td><td>November 5, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4</td><td>November 26, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5</td><td>December 10, 2026</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6 (Simultaneous)</td><td>December 17, 2026</td><td>4:00 AM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>🥊 Knockout Phase</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>Knockout Play-offs (Leg 1)</td><td>February 18, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Knockout Play-offs (Leg 2)</td><td>February 25, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 1)</td><td>March 11, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Leg 2)</td><td>March 18, 2027</td><td>1:45 AM / 4:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 1)</td><td>April 8, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Leg 2)</td><td>April 15, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 1)</td><td>April 29, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Leg 2)</td><td>May 6, 2027</td><td>3:00 AM</td><td>Home Team Stadium</td></tr>
+                                <tr><td><strong>Final</strong></td><td><strong>June 2, 2027</strong></td><td><strong>3:00 AM</strong></td><td><strong>Beşiktaş Stadium, Istanbul, Turkey</strong></td></tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SUPER CUP -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>👑 UEFA Super Cup 2026</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="schedule-subgroup">
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium</th></tr>
+                                <tr><td><strong>Final</strong></td><td><strong>August 13, 2026</strong></td><td><strong>3:00 AM</strong></td><td><strong>Stadion Salzburg (Red Bull Arena), Austria</strong></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YOUTH LEAGUE -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>✨ UEFA Youth League 2026/27</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        
+                        <div class="schedule-subgroup">
+                            <h4>🇪🇺 UEFA Champions League Path (League Phase)</h4>
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>League Phase Draw</td><td>August 27, 2026</td><td>12:00 AM</td><td>Grimaldi Forum, Monaco</td></tr>
+                                <tr><td>Matchday 1 (Day 1)</td><td>September 8, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 1 (Day 2)</td><td>September 9, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 1 (Day 3)</td><td>September 10, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2 (Day 1)</td><td>October 13, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 2 (Day 2)</td><td>October 14, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3 (Day 1)</td><td>October 20, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 3 (Day 2)</td><td>October 21, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4 (Day 1)</td><td>November 3, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 4 (Day 2)</td><td>November 4, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5 (Day 1)</td><td>November 24, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 5 (Day 2)</td><td>November 25, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6 (Day 1)</td><td>December 8, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Matchday 6 (Day 2)</td><td>December 9, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>🛡️ Domestic Champions Path</h4>
+                            <table class="schedule-table">
+                                <tr><th>Perlawanan / Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>Domestic Champions Path Draw</td><td>September 1, 2026</td><td>6:00 PM</td><td>UEFA HQ, Nyon</td></tr>
+                                <tr><td>First Round (Leg 1)</td><td>September 16, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>First Round (Leg 2)</td><td>October 14, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Second Round (Leg 1)</td><td>October 28, 2026</td><td>8:00 PM / 10:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Second Round (Leg 2)</td><td>November 4, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Third Round (Leg 1)</td><td>November 25, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Third Round (Leg 2)</td><td>December 9, 2026</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="schedule-subgroup">
+                            <h4>🥊 Knockout Phase & Final Four</h4>
+                            <table class="schedule-table">
+                                <tr><th>Peringkat</th><th>Tarikh</th><th>Masa (MYT)</th><th>Stadium / Lokasi</th></tr>
+                                <tr><td>Round of 32 Draw</td><td>December 11, 2026</td><td>7:00 PM</td><td>UEFA HQ, Nyon</td></tr>
+                                <tr><td>Round of 32 (Day 1)</td><td>February 2, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 32 (Day 2)</td><td>February 3, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 to Final Draw</td><td>February 5, 2027</td><td>7:00 PM</td><td>UEFA HQ, Nyon</td></tr>
+                                <tr><td>Round of 16 (Day 1)</td><td>February 23, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Round of 16 (Day 2)</td><td>February 24, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Day 1)</td><td>March 16, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Quarter-finals (Day 2)</td><td>March 17, 2027</td><td>9:00 PM / 11:00 PM</td><td>Home Team Stadium</td></tr>
+                                <tr><td>Semi-finals (Match 1)</td><td>April 16, 2027</td><td>8:00 PM</td><td>Colovray Stadium, Nyon</td></tr>
+                                <tr><td>Semi-finals (Match 2)</td><td>April 16, 2027</td><td>11:00 PM</td><td>Colovray Stadium, Nyon</td></tr>
+                                <tr><td><strong>Final</strong></td><td><strong>April 19, 2027</strong></td><td><strong>11:00 PM</strong></td><td><strong>Colovray Stadium, Nyon</strong></td></tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 3: SCORES -->
+        <section id="scores" class="tab-content">
+            <div class="grid-container">
+                <div class="match-card">
+                    <div class="match-header">
+                        <span>UEFA Champions League</span>
+                        <span class="badge-live">LIVE</span>
+                    </div>
+                    <div class="match-body">
+                        <div class="team">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Bayern</span>
+                        </div>
+                        <div class="score-time">2 - 1</div>
+                        <div class="team">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Arsenal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="match-card">
+                    <div class="match-header">
+                        <span>UEFA Champions League</span>
+                        <span>FT (Tamat)</span>
+                    </div>
+                    <div class="match-body">
+                        <div class="team">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>PSG</span>
+                        </div>
+                        <div class="score-time">1 - 4</div>
+                        <div class="team">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Barcelona</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 <strong>Home Of UEFA</strong>. Powered by <strong>Sports Hub Official</strong>. A project of <strong>Football Media Center</strong>.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function switchChannel(streamUrl, btnElement) {
+            document.getElementById('videoPlayer').src = streamUrl;
+            
+            let channelBtns = document.getElementsByClassName("channel-btn");
+            for (let i = 0; i < channelBtns.length; i++) {
+                channelBtns[i].classList.remove("active");
+            }
+            
+            btnElement.classList.add("active");
+        }
+
+        function toggleAccordion(button) {
+            button.classList.toggle("active");
+            let content = button.nextElementSibling;
+            content.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
