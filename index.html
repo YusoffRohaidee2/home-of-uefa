@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
     <style>
         :root {
             --primary-bg: #0b0e14;
@@ -131,25 +134,45 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 16px 20px;
+            padding: 20px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(22,27,34,0.9) 0%, rgba(11,14,20,0.9) 100%);
         }
 
         .promo-banner h2 {
-            font-size: 1.05rem;
+            font-size: 1.2rem;
             color: var(--neon-blue);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .promo-banner p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #d1d5db;
-            line-height: 1.4;
+            line-height: 1.5;
             max-width: 850px;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 12px auto;
+        }
+
+        .match-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .match-details span {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            padding: 4px 12px;
+            border-radius: 6px;
         }
 
         .competitions-tags {
@@ -157,7 +180,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
         .tag {
@@ -226,8 +249,6 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
             background: #000;
             border-radius: 10px;
             overflow: hidden;
@@ -235,13 +256,11 @@
             border: 1px solid var(--border-color);
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .video-container iframe, 
+        .video-container video, 
+        .video-container .video-js {
+            width: 100% !important;
+            height: 450px !important;
         }
 
         /* SCHEDULE ACCORDION STYLES */
@@ -298,7 +317,7 @@
         }
 
         .accordion-content.show {
-            max-height: 3000px; /* Cukup besar untuk muat senarai */
+            max-height: 3000px;
             transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
             padding: 15px 20px 20px 20px;
             border-top: 1px solid var(--border-color);
@@ -441,6 +460,12 @@
                 padding: 6px;
                 font-size: 0.75rem;
             }
+
+            .video-container iframe, 
+            .video-container video, 
+            .video-container .video-js {
+                height: 250px !important;
+            }
         }
     </style>
 </head>
@@ -476,14 +501,19 @@
         
         <!-- DESCRIPTION BANNER -->
         <section class="promo-banner">
-            <h2>🏆 ALL THE UEFA ACTION LIVE HERE!</h2>
-            <p>Don't miss a single goal, drama, or historic match. From the elite stars of the UEFA Champions League to the rising talents of the UEFA Youth League, we’ve got you covered! Your front-row seat to European football starts right here! 📺⚡</p>
+            <h2>👑 UEFA SUPER CUP FINAL 2026 : LIVE & EXCLUSIVE!</h2>
+            <p>The ultimate clash of European champions is here! Champions League winners <strong>PSG</strong> face off against Conference League titleholders <strong>Aston Villa</strong> in an epic battle for European supremacy. Who will lift the ultimate crown? Stream the action live in high definition below!</p>
+            
+            <div class="match-details">
+                <span>🔴 Paris Saint-Germain vs Aston Villa 🦁</span>
+                <span>📅 13 August 2026</span>
+                <span>⏰ 03:00 AM MYT</span>
+            </div>
+
             <div class="competitions-tags">
-                <span class="tag">🌟 UEFA Champions League</span>
-                <span class="tag">⚔️ UEFA Europa League</span>
-                <span class="tag">🛡️ UEFA Conference League</span>
                 <span class="tag">👑 UEFA Super Cup</span>
-                <span class="tag">✨ UEFA Youth League</span>
+                <span class="tag">🏆 Ultimate European Clash</span>
+                <span class="tag">⚡ HD Live Stream</span>
             </div>
         </section>
 
@@ -491,22 +521,19 @@
         <section id="stream" class="tab-content active">
             <div class="stream-wrapper">
                 <div class="channel-selector">
-                    <button class="channel-btn active" onclick="switchChannel('https://cdx-08192.website/embed/tntsports1-uk', this)">
+                    <button class="channel-btn active" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/43/index.m3u8', this)">
+                        <i class="fa-solid fa-play"></i> SportTV5 Portugal
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/13/index.m3u8', this)">
                         <i class="fa-solid fa-play"></i> TNT Sports 1
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel('https://cdx-08192.website/embed/tntsports2-uk', this)">
-                        <i class="fa-solid fa-play"></i> TNT Sports 2
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel('https://cdx-08192.website/embed/tntsports3-uk', this)">
-                        <i class="fa-solid fa-play"></i> TNT Sports 3
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel('https://cdx-08192.website/embed/tntsports4-uk', this)">
-                        <i class="fa-solid fa-play"></i> TNT Sports 4
                     </button>
                 </div>
 
-                <div class="video-container">
-                    <iframe id="videoPlayer" src="https://logic.icelanders.st/embed/tntsports1-uk" frameborder="0" scrolling="no" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                <div class="video-container" id="playerDisplay">
+                    <!-- Default Player: Video.js (SportTV5 Portugal) -->
+                    <video id="videojsPlayer" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay preload="auto">
+                        <source src="https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/43/index.m3u8" type="application/x-mpegURL">
+                    </video>
                 </div>
             </div>
         </section>
@@ -799,18 +826,18 @@
             <div class="grid-container">
                 <div class="match-card">
                     <div class="match-header">
-                        <span>UEFA Champions League</span>
+                        <span>UEFA Super Cup 2026</span>
                         <span class="badge-live">LIVE</span>
                     </div>
                     <div class="match-body">
                         <div class="team">
                             <i class="fa-solid fa-shield-halved"></i>
-                            <span>Bayern</span>
+                            <span>PSG</span>
                         </div>
-                        <div class="score-time">2 - 1</div>
+                        <div class="score-time">0 - 0</div>
                         <div class="team">
                             <i class="fa-solid fa-shield-halved"></i>
-                            <span>Arsenal</span>
+                            <span>Aston Villa</span>
                         </div>
                     </div>
                 </div>
@@ -818,7 +845,7 @@
                 <div class="match-card">
                     <div class="match-header">
                         <span>UEFA Champions League</span>
-                        <span>FT (Tamat)</span>
+                        <span>FT</span>
                     </div>
                     <div class="match-body">
                         <div class="team">
@@ -842,8 +869,23 @@
         <p>© 2026 <strong>Home Of UEFA</strong>. Powered by <strong>Sports Hub Official</strong>. A project of <strong>Football Media Center</strong>.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- Video.js JS Library -->
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
+        let vjsPlayer = null;
+
+        // Initialize default player on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            vjsPlayer = videojs('videojsPlayer', {
+                autoplay: true,
+                controls: true,
+                responsive: true,
+                fluid: true
+            });
+        });
+
         function openTab(evt, tabName) {
             let i, tabcontent, tablinks;
             
@@ -861,15 +903,36 @@
             evt.currentTarget.classList.add("active");
         }
 
-        function switchChannel(streamUrl, btnElement) {
-            document.getElementById('videoPlayer').src = streamUrl;
+        function switchChannel(type, streamUrl, btnElement) {
+            const container = document.getElementById('playerDisplay');
             
+            // Dispose existing Video.js player if active
+            if (vjsPlayer) {
+                vjsPlayer.dispose();
+                vjsPlayer = null;
+            }
+
+            // Update button active state
             let channelBtns = document.getElementsByClassName("channel-btn");
             for (let i = 0; i < channelBtns.length; i++) {
                 channelBtns[i].classList.remove("active");
             }
-            
             btnElement.classList.add("active");
+
+            // Render Video.js player
+            if (type === 'm3u8') {
+                container.innerHTML = `
+                    <video id="videojsPlayer" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay preload="auto">
+                        <source src="${streamUrl}" type="application/x-mpegURL">
+                    </video>
+                `;
+                vjsPlayer = videojs('videojsPlayer', {
+                    autoplay: true,
+                    controls: true,
+                    responsive: true,
+                    fluid: true
+                });
+            }
         }
 
         function toggleAccordion(button) {
