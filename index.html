@@ -256,11 +256,26 @@
             border: 1px solid var(--border-color);
         }
 
+        /* UNTUK MOD SKRIN NORMAL */
+        .video-container:not(.vjs-fullscreen) {
+            height: 450px !important;
+        }
+
         .video-container iframe, 
         .video-container video, 
         .video-container .video-js {
             width: 100% !important;
-            height: 450px !important;
+            height: 100% !important;
+        }
+
+        /* UNTUK MOD FULLSCREEN SEBENAR */
+        .video-js.vjs-fullscreen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 999999 !important;
         }
 
         /* SCHEDULE ACCORDION STYLES */
@@ -461,9 +476,7 @@
                 font-size: 0.75rem;
             }
 
-            .video-container iframe, 
-            .video-container video, 
-            .video-container .video-js {
+            .video-container:not(.vjs-fullscreen) {
                 height: 250px !important;
             }
         }
@@ -521,18 +534,18 @@
         <section id="stream" class="tab-content active">
             <div class="stream-wrapper">
                 <div class="channel-selector">
-                    <button class="channel-btn active" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/43/index.m3u8', this)">
-                        <i class="fa-solid fa-play"></i> SportTV5 Portugal
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/13/index.m3u8', this)">
+                    <button class="channel-btn active" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://7nyaler.streamhostingcdn.top/stream/13/index.m3u8', this)">
                         <i class="fa-solid fa-play"></i> TNT Sports 1
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel('m3u8', 'https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://7nyaler.streamhostingcdn.top/stream/43/index.m3u8', this)">
+                        <i class="fa-solid fa-play"></i> SportTV5 Portugal
                     </button>
                 </div>
 
                 <div class="video-container" id="playerDisplay">
                     <!-- Default Player: Video.js (SportTV5 Portugal) -->
                     <video id="videojsPlayer" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay preload="auto">
-                        <source src="https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://1nyaler.streamhostingcdn.top/stream/43/index.m3u8" type="application/x-mpegURL">
+                        <source src="https://bold-sky-a86c.yusoff-rohaidee.workers.dev/?url=https://7nyaler.streamhostingcdn.top/stream/13/index.m3u8" type="application/x-mpegURL">
                     </video>
                 </div>
             </div>
@@ -878,13 +891,18 @@
 
         // Initialize default player on page load
         document.addEventListener("DOMContentLoaded", function() {
+            initPlayer();
+        });
+
+        function initPlayer() {
             vjsPlayer = videojs('videojsPlayer', {
                 autoplay: true,
                 controls: true,
                 responsive: true,
-                fluid: true
+                fluid: false,
+                preferFullWindow: false
             });
-        });
+        }
 
         function openTab(evt, tabName) {
             let i, tabcontent, tablinks;
@@ -926,12 +944,7 @@
                         <source src="${streamUrl}" type="application/x-mpegURL">
                     </video>
                 `;
-                vjsPlayer = videojs('videojsPlayer', {
-                    autoplay: true,
-                    controls: true,
-                    responsive: true,
-                    fluid: true
-                });
+                initPlayer();
             }
         }
 
