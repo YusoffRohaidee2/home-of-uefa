@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set Referrer Policy at document level -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Home Of UEFA - Sports Hub Official</title>
     
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/9/9d/UEFA_full_logo.svg" type="image/svg">
@@ -40,7 +42,6 @@
             flex-direction: column;
         }
 
-        /* HEADER & NAVBAR */
         header {
             background: linear-gradient(180deg, rgba(11,14,20,1) 0%, rgba(22,27,34,0.8) 100%);
             border-bottom: 1px solid var(--border-color);
@@ -266,7 +267,7 @@
     <main>
         <section class="promo-banner">
             <h2>👑 UEFA CHAMPIONS LEAGUE & LIVE SPORTS</h2>
-            <p>Saksikan siaran langsung sukan dengan kelajuan responsif tinggi & latensi minimum.</p>
+            <p>Watch live sports streams with high responsiveness and ultra-low latency.</p>
         </section>
 
         <!-- TAB 1: LIVE STREAM -->
@@ -274,13 +275,13 @@
             <div class="stream-wrapper">
                 <div class="channel-selector">
                     <button class="channel-btn active" onclick="playChannel(0, this)">
-                        <i class="fa-solid fa-play"></i> TNT SPORTS 1 🇬🇧 (DASH + ClearKey)
+                        <i class="fa-solid fa-play"></i> CBC Sport
                     </button>
                     <button class="channel-btn" onclick="playChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> TNT Sports 1 (Stream 13 M3U8)
+                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (A)
                     </button>
                     <button class="channel-btn" onclick="playChannel(2, this)">
-                        <i class="fa-solid fa-play"></i> SportTV5 Portugal (Stream 43 M3U8)
+                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (A) 2
                     </button>
                 </div>
 
@@ -301,24 +302,25 @@
     <script>
         let player = null;
 
-        // Senarai Saluran
+        // Direct Channel List
         const channels = [
             {
-                name: "TNT SPORTS 1 🇬🇧",
-                src: "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd",
-                type: "application/dash+xml",
-                keyId: "69a5aa835a061ce64a630d1046727e40",
-                key: "d02feac8a999bd06bf4059bf33411749"
+                name: "CBC Sport",
+                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivecbcs.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
             },
             {
-                name: "TNT Sports 1 (M3U8)",
-                src: "https://flat-butterfly-3ef0.yusoffrohaidee1.workers.dev/?url=https://7nyaler.streamhostingcdn.top/stream/13/index.m3u8",
-                type: "application/x-mpegURL"
+                name: "Tabii Spor 1 (A)",
+                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivetb.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
             },
             {
-                name: "SportTV5 Portugal (M3U8)",
-                src: "https://flat-butterfly-3ef0.yusoffrohaidee1.workers.dev/?url=https://7nyaler.streamhostingcdn.top/stream/43/index.m3u8",
-                type: "application/x-mpegURL"
+                name: "Tabii Spor 1 (A) 2",
+                src: "http://andro.226503.xyz/checklist/androstreamlivetb.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
             }
         ];
 
@@ -328,7 +330,7 @@
         });
 
         function initVideoPlayer() {
-            // Konfigurasi khas Video.js untuk kawalan Buffer Rendah (10-20 saat) & ELAK LAG 99 JAM
+            // Video.js Configuration with XHR Hook for M3U8 Requests
             player = videojs('videojsPlayer', {
                 autoplay: true,
                 controls: true,
@@ -339,14 +341,17 @@
                         overrideNative: true,
                         enableLowInitialPlaylist: true,
                         smoothQualityChange: true,
-                        // Tetapan khas elak delay gergasi pada siaran LIVE:
-                        liveSyncDurationCount: 3,       // Kekal dekat dengan edge siaran asal
-                        liveMaxLatencyDurationCount: 6, // Hadkan buffer maksima sekitar 10-20 saat
-                        backBufferLength: 10
-                    },
-                    dash: {
-                        // Elak delay pada aliran DASH
-                        liveDelay: 12
+                        liveSyncDurationCount: 3,
+                        liveMaxLatencyDurationCount: 6,
+                        backBufferLength: 10,
+                        xhr: function(options) {
+                            // Attach custom headers during M3U8/TS requests
+                            if (player && player.currentCustomHeader) {
+                                options.headers = options.headers || {};
+                                options.headers['X-Requested-With'] = 'XMLHttpRequest';
+                            }
+                            return options;
+                        }
                     }
                 }
             });
@@ -355,32 +360,23 @@
         function playChannel(index, btnElement) {
             const ch = channels[index];
 
-            // Tukar butang aktif
+            // Update active button state
             let btns = document.getElementsByClassName("channel-btn");
             for (let i = 0; i < btns.length; i++) {
                 btns[i].classList.remove("active");
             }
             if(btnElement) btnElement.classList.add("active");
 
-            // Konfigurasi DRM Clearkey jika wujud (Untuk TNT SPORTS 1 MPD)
-            let sourceOption = {
+            // Store custom header reference
+            player.currentCustomHeader = ch.customHeader;
+
+            // Load direct stream
+            player.src({
                 src: ch.src,
                 type: ch.type
-            };
+            });
 
-            if (ch.keyId && ch.key) {
-                sourceOption.keySystems = {
-                    'org.w3.clearkey': {
-                        clearkeys: {
-                            [ch.keyId]: ch.key
-                        }
-                    }
-                };
-            }
-
-            // Muat turun saluran baharu
-            player.src(sourceOption);
-            player.play().catch(e => console.log("Autoplay ditahan pelayar:", e));
+            player.play().catch(e => console.log("Autoplay prevented by browser:", e));
         }
 
         function openTab(evt, tabName) {
