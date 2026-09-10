@@ -275,13 +275,22 @@
             <div class="stream-wrapper">
                 <div class="channel-selector">
                     <button class="channel-btn active" onclick="playChannel(0, this)">
-                        <i class="fa-solid fa-play"></i> CBC Sport
+                        <i class="fa-solid fa-play"></i> CBC Sport Azerbaijan
                     </button>
                     <button class="channel-btn" onclick="playChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (A)
+                        <i class="fa-solid fa-play"></i> CBC Sport Azerbaijan (2)
                     </button>
                     <button class="channel-btn" onclick="playChannel(2, this)">
-                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (A) 2
+                        <i class="fa-solid fa-play"></i> Tabii Spor 1
+                    </button>
+                    <button class="channel-btn" onclick="playChannel(3, this)">
+                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (2)
+                    </button>
+                    <button class="channel-btn" onclick="playChannel(4, this)">
+                        <i class="fa-solid fa-play"></i> TRT 1
+                    </button>
+                    <button class="channel-btn" onclick="playChannel(5, this)">
+                        <i class="fa-solid fa-play"></i> TRT 1 (2)
                     </button>
                 </div>
 
@@ -305,20 +314,38 @@
         // Direct Channel List
         const channels = [
             {
-                name: "CBC Sport",
+                name: "CBC Sport Azerbaijan",
                 src: "https://andro.evrenesoglu99.click/checklist/androstreamlivecbcs.m3u8",
                 type: "application/x-mpegURL",
                 customHeader: "https://mahsunsports.xyz/"
             },
             {
-                name: "Tabii Spor 1 (A)",
+                name: "CBC Sport Azerbaijan (2)",
+                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivecbcs.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
+            },
+            {
+                name: "Tabii Spor 1",
                 src: "https://andro.evrenesoglu99.click/checklist/androstreamlivetb.m3u8",
                 type: "application/x-mpegURL",
                 customHeader: "https://mahsunsports.xyz/"
             },
             {
-                name: "Tabii Spor 1 (A) 2",
-                src: "http://andro.226503.xyz/checklist/androstreamlivetb.m3u8",
+                name: "Tabii Spor 1 (2)",
+                src: "https://andro.226503.xyz/checklist/androstreamlivetb.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
+            },
+            {
+                name: "TRT 1",
+                src: "https://andro.226503.xyz/checklist/androstreamlivetrt1.m3u8",
+                type: "application/x-mpegURL",
+                customHeader: "https://mahsunsports.xyz/"
+            },
+            {
+                name: "TRT 1 (2)",
+                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivetrt1.m3u8",
                 type: "application/x-mpegURL",
                 customHeader: "https://mahsunsports.xyz/"
             }
