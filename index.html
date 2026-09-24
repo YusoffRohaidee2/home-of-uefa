@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Set Referrer Policy at document level -->
     <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Home Of UEFA - Sports Hub Official</title>
     
@@ -215,16 +214,15 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
             border: 1px solid var(--border-color);
-        }
-
-        .video-container:not(.vjs-fullscreen) {
             height: 450px !important;
         }
 
         .video-container video, 
-        .video-container .video-js {
+        .video-container .video-js,
+        .video-container iframe {
             width: 100% !important;
             height: 100% !important;
+            border: none;
         }
 
         footer {
@@ -238,7 +236,7 @@
         }
 
         @media (max-width: 768px) {
-            .video-container:not(.vjs-fullscreen) {
+            .video-container {
                 height: 250px !important;
             }
         }
@@ -266,7 +264,7 @@
 
     <main>
         <section class="promo-banner">
-            <h2>👑 UEFA CHAMPIONS LEAGUE & LIVE SPORTS</h2>
+            <h2>👑 UEFA NATIONS LEAGUE & LIVE SPORTS</h2>
             <p>Watch live sports streams with high responsiveness and ultra-low latency.</p>
         </section>
 
@@ -274,28 +272,25 @@
         <section id="stream" class="tab-content active">
             <div class="stream-wrapper">
                 <div class="channel-selector">
-                    <button class="channel-btn active" onclick="playChannel(0, this)">
+                    <button class="channel-btn active" onclick="switchChannel(0, this)">
                         <i class="fa-solid fa-play"></i> CBC Sport Azerbaijan
                     </button>
-                    <button class="channel-btn" onclick="playChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> CBC Sport Azerbaijan (2)
+                    <button class="channel-btn" onclick="switchChannel(1, this)">
+                        <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia HD
                     </button>
-                    <button class="channel-btn" onclick="playChannel(2, this)">
-                        <i class="fa-solid fa-play"></i> Tabii Spor 1
+                    <button class="channel-btn" onclick="switchChannel(2, this)">
+                        <i class="fa-solid fa-play"></i> iNews
                     </button>
-                    <button class="channel-btn" onclick="playChannel(3, this)">
-                        <i class="fa-solid fa-play"></i> Tabii Spor 1 (2)
+                    <button class="channel-btn" onclick="switchChannel(3, this)">
+                        <i class="fa-solid fa-play"></i> RCTI
                     </button>
-                    <button class="channel-btn" onclick="playChannel(4, this)">
-                        <i class="fa-solid fa-play"></i> TRT 1
-                    </button>
-                    <button class="channel-btn" onclick="playChannel(5, this)">
-                        <i class="fa-solid fa-play"></i> TRT 1 (2)
+                    <button class="channel-btn" onclick="switchChannel(4, this)">
+                        <i class="fa-solid fa-play"></i> GTV
                     </button>
                 </div>
 
                 <div class="video-container" id="playerDisplay">
-                    <video id="videojsPlayer" class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay preload="auto"></video>
+                    <!-- Dynamic element rendered by JS -->
                 </div>
             </div>
         </section>
@@ -311,99 +306,90 @@
     <script>
         let player = null;
 
-        // Direct Channel List
+        // UEFA Nations League Lineup
         const channels = [
             {
                 name: "CBC Sport Azerbaijan",
-                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivecbcs.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
+                type: "m3u8",
+                src: "https://andro.evrenesoglu121.click/checklist/androstreamlivecbcs.m3u8"
             },
             {
-                name: "CBC Sport Azerbaijan (2)",
-                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivecbcs.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
+                name: "beIN Sports 1 Arabia HD",
+                type: "m3u8",
+                src: "https://edge22.776740.ir.cdn.ir/hls2/bein1.m3u8"
             },
             {
-                name: "Tabii Spor 1",
-                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivetb.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
+                name: "iNews",
+                type: "iframe",
+                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/inews.m3u8"
             },
             {
-                name: "Tabii Spor 1 (2)",
-                src: "https://andro.226503.xyz/checklist/androstreamlivetb.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
+                name: "RCTI",
+                type: "iframe",
+                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/rcti.m3u8"
             },
             {
-                name: "TRT 1",
-                src: "https://andro.226503.xyz/checklist/androstreamlivetrt1.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
-            },
-            {
-                name: "TRT 1 (2)",
-                src: "https://andro.evrenesoglu99.click/checklist/androstreamlivetrt1.m3u8",
-                type: "application/x-mpegURL",
-                customHeader: "https://mahsunsports.xyz/"
+                name: "GTV",
+                type: "iframe",
+                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/gtv.m3u8"
             }
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
-            initVideoPlayer();
-            playChannel(0, document.querySelectorAll('.channel-btn')[0]);
+            switchChannel(0, document.querySelectorAll('.channel-btn')[0]);
         });
 
-        function initVideoPlayer() {
-            // Video.js Configuration with XHR Hook for M3U8 Requests
-            player = videojs('videojsPlayer', {
-                autoplay: true,
-                controls: true,
-                responsive: true,
-                liveui: true,
-                html5: {
-                    vhs: {
-                        overrideNative: true,
-                        enableLowInitialPlaylist: true,
-                        smoothQualityChange: true,
-                        liveSyncDurationCount: 3,
-                        liveMaxLatencyDurationCount: 6,
-                        backBufferLength: 10,
-                        xhr: function(options) {
-                            // Attach custom headers during M3U8/TS requests
-                            if (player && player.currentCustomHeader) {
-                                options.headers = options.headers || {};
-                                options.headers['X-Requested-With'] = 'XMLHttpRequest';
-                            }
-                            return options;
-                        }
-                    }
-                }
-            });
-        }
-
-        function playChannel(index, btnElement) {
+        function switchChannel(index, btnElement) {
             const ch = channels[index];
+            const display = document.getElementById("playerDisplay");
 
-            // Update active button state
+            // Update tab button UI
             let btns = document.getElementsByClassName("channel-btn");
             for (let i = 0; i < btns.length; i++) {
                 btns[i].classList.remove("active");
             }
             if(btnElement) btnElement.classList.add("active");
 
-            // Store custom header reference
-            player.currentCustomHeader = ch.customHeader;
+            // Dispose active Video.js player instance
+            if (player) {
+                player.dispose();
+                player = null;
+            }
 
-            // Load direct stream
-            player.src({
-                src: ch.src,
-                type: ch.type
-            });
+            // Clear display container
+            display.innerHTML = "";
 
-            player.play().catch(e => console.log("Autoplay prevented by browser:", e));
+            if (ch.type === "iframe") {
+                // Render IFrame Player
+                const iframe = document.createElement("iframe");
+                iframe.src = ch.src;
+                iframe.allow = "autoplay; encrypted-media; fullscreen";
+                iframe.allowFullscreen = true;
+                display.appendChild(iframe);
+            } else {
+                // Render Video.js Player
+                const videoElem = document.createElement("video");
+                videoElem.id = "videojsPlayer";
+                videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
+                videoElem.controls = true;
+                videoElem.autoplay = true;
+                videoElem.preload = "auto";
+                display.appendChild(videoElem);
+
+                player = videojs('videojsPlayer', {
+                    autoplay: true,
+                    controls: true,
+                    responsive: true,
+                    liveui: true
+                });
+
+                player.src({
+                    src: ch.src,
+                    type: "application/x-mpegURL"
+                });
+
+                player.play().catch(e => console.log("Autoplay blocked:", e));
+            }
         }
 
         function openTab(evt, tabName) {
