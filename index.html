@@ -278,20 +278,26 @@
                     <button class="channel-btn" onclick="switchChannel(1, this)">
                         <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia HD
                     </button>
-                                        <button class="channel-btn" onclick="switchChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> beIN Sports 2 Arabia HD
-                    </button>
-                                        <button class="channel-btn" onclick="switchChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> beIN Sports 3 Arabia HD
-                    </button>
                     <button class="channel-btn" onclick="switchChannel(2, this)">
-                        <i class="fa-solid fa-play"></i> iNews
+                        <i class="fa-solid fa-play"></i> Sony Sports Ten 1 HD
                     </button>
                     <button class="channel-btn" onclick="switchChannel(3, this)">
-                        <i class="fa-solid fa-play"></i> RCTI
+                        <i class="fa-solid fa-play"></i> Sony Sports Ten 2
                     </button>
                     <button class="channel-btn" onclick="switchChannel(4, this)">
-                        <i class="fa-solid fa-play"></i> GTV
+                        <i class="fa-solid fa-play"></i> Sony Sports Ten 5 (576p)
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel(5, this)">
+                        <i class="fa-solid fa-play"></i> SCTV
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel(6, this)">
+                        <i class="fa-solid fa-play"></i> RCTI Digital FHD
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel(7, this)">
+                        <i class="fa-solid fa-play"></i> GTV Digital FHD
+                    </button>
+                    <button class="channel-btn" onclick="switchChannel(8, this)">
+                        <i class="fa-solid fa-play"></i> iNews Digital FHD
                     </button>
                 </div>
 
@@ -312,7 +318,7 @@
     <script>
         let player = null;
 
-        // UEFA Nations League Lineup
+        // Channel Lineup
         const channels = [
             {
                 name: "CBC Sport Azerbaijan",
@@ -324,30 +330,40 @@
                 type: "m3u8",
                 src: "https://cp11.adabmedia.com/hls2/bein1.m3u8"
             },
-                        {
-                name: "beIN Sports 2 Arabia HD",
+            {
+                name: "Sony Sports Ten 1 HD",
                 type: "m3u8",
-                src: "https://cp11.adabmedia.com/hls2/bein2.m3u8"
+                src: "https://footfytv.pro/proxy/direct?url=http://103.185.24.134:3001/SonyTenSports1/index.m3u8"
             },
-                        {
-                name: "beIN Sports 3 Arabia HD",
+            {
+                name: "Sony Sports Ten 2",
                 type: "m3u8",
-                src: "https://cp11.adabmedia.com/hls2/bein3.m3u8"
+                src: "https://footfytv.pro/proxy/direct?url=http://103.151.60.162:2122/play/a01b/index.m3u8?hls"
             },
             {
-                name: "iNews",
-                type: "iframe",
-                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/inews.m3u8"
+                name: "Sony Sports Ten 5 (576p)",
+                type: "m3u8",
+                src: "https://footfytv.pro/proxy/direct?url=http://103.151.60.162:2122/play/a028/index.m3u8?hls"
             },
             {
-                name: "RCTI",
-                type: "iframe",
-                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/rcti.m3u8"
+                name: "SCTV",
+                type: "m3u8",
+                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/SCTV/tracks-v1a1/mono.m3u8"
             },
             {
-                name: "GTV",
-                type: "iframe",
-                src: "https://player.icanplay.my.id/?url=https://idstream.co-id.id/gtv.m3u8"
+                name: "RCTI Digital FHD",
+                type: "m3u8",
+                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/RCTIHD/index.m3u8"
+            },
+            {
+                name: "GTV Digital FHD",
+                type: "m3u8",
+                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/GTVHD/index.m3u8"
+            },
+            {
+                name: "iNews Digital FHD",
+                type: "m3u8",
+                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/iNews/index.m3u8"
             }
         ];
 
@@ -375,37 +391,28 @@
             // Clear display container
             display.innerHTML = "";
 
-            if (ch.type === "iframe") {
-                // Render IFrame Player
-                const iframe = document.createElement("iframe");
-                iframe.src = ch.src;
-                iframe.allow = "autoplay; encrypted-media; fullscreen";
-                iframe.allowFullscreen = true;
-                display.appendChild(iframe);
-            } else {
-                // Render Video.js Player
-                const videoElem = document.createElement("video");
-                videoElem.id = "videojsPlayer";
-                videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
-                videoElem.controls = true;
-                videoElem.autoplay = true;
-                videoElem.preload = "auto";
-                display.appendChild(videoElem);
+            // Render Video.js Player for all channels
+            const videoElem = document.createElement("video");
+            videoElem.id = "videojsPlayer";
+            videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
+            videoElem.controls = true;
+            videoElem.autoplay = true;
+            videoElem.preload = "auto";
+            display.appendChild(videoElem);
 
-                player = videojs('videojsPlayer', {
-                    autoplay: true,
-                    controls: true,
-                    responsive: true,
-                    liveui: true
-                });
+            player = videojs('videojsPlayer', {
+                autoplay: true,
+                controls: true,
+                responsive: true,
+                liveui: true
+            });
 
-                player.src({
-                    src: ch.src,
-                    type: "application/x-mpegURL"
-                });
+            player.src({
+                src: ch.src,
+                type: "application/x-mpegURL"
+            });
 
-                player.play().catch(e => console.log("Autoplay blocked:", e));
-            }
+            player.play().catch(e => console.log("Autoplay blocked:", e));
         }
 
         function openTab(evt, tabName) {
