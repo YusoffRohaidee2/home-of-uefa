@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Home Of UEFA - Sports Hub Official</title>
     
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/9/9d/UEFA_full_logo.svg" type="image/svg">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/9/9d/UEFA_full_logo.svg" type="image/svg+xml">
 
     <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Video.js CSS -->
@@ -17,227 +17,336 @@
 
     <style>
         :root {
-            --primary-bg: #0b0e14;
-            --card-bg: #161b22;
-            --accent-blue: #0052b4;
-            --neon-blue: #00d2ff;
-            --text-main: #ffffff;
-            --text-muted: #8b949e;
-            --border-color: #30363d;
+            --bg-dark: #05070f;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --neon-cyan: #00f3ff;
+            --neon-purple: #9d00ff;
+            --neon-pink: #ff007f;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 243, 255, 0.25);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
         }
 
         body {
-            background-color: var(--primary-bg);
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 243, 255, 0.12) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
+        /* HEADER FUTURISTIK */
         header {
-            background: linear-gradient(180deg, rgba(11,14,20,1) 0%, rgba(22,27,34,0.8) 100%);
-            border-bottom: 1px solid var(--border-color);
+            background: rgba(10, 14, 26, 0.85);
+            border-bottom: 1px solid var(--border-glow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 30px rgba(0, 243, 255, 0.1);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 12px 20px;
+            padding: 14px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
         }
 
         .brand-section {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .brand-section img {
-            height: 38px;
-            filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.3));
+            height: 42px;
+            filter: drop-shadow(0 0 8px var(--neon-cyan));
         }
 
         .brand-title h1 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            background: linear-gradient(45deg, #ffffff, var(--neon-blue));
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #fff, var(--neon-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .brand-title p {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
+            letter-spacing: 1px;
         }
 
         .nav-tabs {
             display: flex;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 4px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
+            gap: 8px;
+            background: rgba(5, 7, 15, 0.6);
+            padding: 5px;
+            border-radius: 30px;
+            border: 1px solid var(--border-glow);
         }
 
         .tab-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 6px 14px;
-            border-radius: 16px;
+            padding: 8px 18px;
+            border-radius: 20px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .tab-btn:hover {
-            color: var(--text-main);
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
         }
 
         .tab-btn.active {
-            background: linear-gradient(135deg, var(--accent-blue), var(--neon-blue));
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
             color: #fff;
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
         }
 
+        /* MAIN CONTENT CONTAINER */
         main {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
             flex: 1;
             width: 100%;
         }
 
+        /* PROMO BANNER */
         .promo-banner {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, rgba(22,27,34,0.9) 0%, rgba(11,14,20,0.9) 100%);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: scanline 4s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .promo-banner h2 {
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
-            color: var(--neon-blue);
-            margin-bottom: 8px;
-            font-weight: 700;
+            color: var(--neon-cyan);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         .promo-banner p {
-            font-size: 0.85rem;
-            color: #d1d5db;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            color: #cbd5e1;
             max-width: 850px;
-            margin: 0 auto 12px auto;
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stream-wrapper {
-            max-width: 800px;
             margin: 0 auto;
         }
 
+        .stream-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* CHANNEL SELECTOR BUTTONS */
         .channel-selector {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .channel-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.78rem;
-            transition: all 0.2s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            backdrop-filter: blur(8px);
         }
 
         .channel-btn:hover {
-            border-color: var(--neon-blue);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         .channel-btn.active {
-            border-color: var(--neon-blue);
-            background: rgba(0, 210, 255, 0.15);
-            color: var(--neon-blue);
+            border-color: var(--neon-cyan);
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(157, 0, 255, 0.2));
+            color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+        }
+
+        /* PLAYER FRAME & CONTAINER */
+        .player-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 243, 255, 0.15);
+            backdrop-filter: blur(12px);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px 12px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 12px;
+        }
+
+        .current-channel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .live-badge {
+            background: rgba(255, 0, 127, 0.2);
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
 
         .video-container {
             position: relative;
             width: 100%;
             background: #000;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            border: 1px solid var(--border-color);
-            height: 450px !important;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 500px !important;
         }
 
         .video-container video, 
-        .video-container .video-js,
-        .video-container iframe {
+        .video-container .video-js {
             width: 100% !important;
             height: 100% !important;
-            border: none;
         }
 
+        /* CUSTOM VIDEO.JS THEME ACCENT */
+        .vjs-default-skin .vjs-big-play-button {
+            background-color: rgba(157, 0, 255, 0.7) !important;
+            border-color: var(--neon-cyan) !important;
+            border-radius: 50% !important;
+            width: 2em !important;
+            height: 2em !important;
+            line-height: 2em !important;
+            margin-top: -1em !important;
+            margin-left: -1em !important;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        /* FOOTER */
         footer {
-            background: var(--card-bg);
-            border-top: 1px solid var(--border-color);
+            background: rgba(10, 14, 26, 0.95);
+            border-top: 1px solid var(--border-glow);
             text-align: center;
-            padding: 15px;
-            font-size: 0.78rem;
+            padding: 18px;
+            font-size: 0.85rem;
             color: var(--text-muted);
             margin-top: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        footer strong {
+            color: var(--neon-cyan);
         }
 
         @media (max-width: 768px) {
             .video-container {
-                height: 250px !important;
+                height: 260px !important;
+            }
+            .brand-title h1 {
+                font-size: 1rem;
+            }
+            .channel-btn {
+                font-size: 0.75rem;
+                padding: 8px 14px;
             }
         }
     </style>
@@ -250,13 +359,13 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/UEFA_full_logo.svg" alt="UEFA Logo">
                 <div class="brand-title">
                     <h1>HOME OF UEFA</h1>
-                    <p>By Sports Hub Official | Football Media Center</p>
+                    <p>Sports Hub Official | Futuristic Media Center</p>
                 </div>
             </div>
 
             <nav class="nav-tabs">
-                <button class="tab-btn active" onclick="openTab(event, 'stream')">
-                    <i class="fa-solid fa-tv"></i> Live Stream
+                <button class="tab-btn active">
+                    <i class="fa-solid fa-satellite-dish"></i> LIVE BROADCAST
                 </button>
             </nav>
         </div>
@@ -264,52 +373,44 @@
 
     <main>
         <section class="promo-banner">
-            <h2>👑 UEFA NATIONS LEAGUE & LIVE SPORTS</h2>
-            <p>Watch live sports streams with high responsiveness and ultra-low latency.</p>
+            <h2><i class="fa-solid fa-bolt"></i> ULTRA-LOW LATENCY STREAMING</h2>
+            <p>Nikmati siaran langsung olahraga berkecepatan tinggi dengan tampilan antarmuka generasi baru.</p>
         </section>
 
-        <!-- TAB 1: LIVE STREAM -->
-        <section id="stream" class="tab-content active">
-            <div class="stream-wrapper">
-                <div class="channel-selector">
-                    <button class="channel-btn active" onclick="switchChannel(0, this)">
-                        <i class="fa-solid fa-play"></i> CBC Sport Azerbaijan
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(1, this)">
-                        <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia HD
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(2, this)">
-                        <i class="fa-solid fa-play"></i> Sony Sports Ten 1 HD
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(3, this)">
-                        <i class="fa-solid fa-play"></i> Sony Sports Ten 2
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(4, this)">
-                        <i class="fa-solid fa-play"></i> Sony Sports Ten 5 (576p)
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(5, this)">
-                        <i class="fa-solid fa-play"></i> SCTV
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(6, this)">
-                        <i class="fa-solid fa-play"></i> RCTI Digital FHD
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(7, this)">
-                        <i class="fa-solid fa-play"></i> GTV Digital FHD
-                    </button>
-                    <button class="channel-btn" onclick="switchChannel(8, this)">
-                        <i class="fa-solid fa-play"></i> iNews Digital FHD
-                    </button>
+        <section class="stream-wrapper">
+            <!-- Pilihan Channel Baru -->
+            <div class="channel-selector">
+                <button class="channel-btn active" onclick="switchChannel(0, this)">
+                    <i class="fa-solid fa-play"></i> beIN Sports 2 Arabia
+                </button>
+                <button class="channel-btn" onclick="switchChannel(1, this)">
+                    <i class="fa-solid fa-play"></i> Fox Sports 1 USA (Server 1)
+                </button>
+                <button class="channel-btn" onclick="switchChannel(2, this)">
+                    <i class="fa-solid fa-play"></i> Fox Sports 1 USA (Server 2)
+                </button>
+            </div>
+
+            <!-- Frame Pemutar Video -->
+            <div class="player-card">
+                <div class="player-header">
+                    <div class="current-channel-title" id="channelNameDisplay">
+                        <i class="fa-solid fa-tv"></i> <span>beIN Sports 2 Arabia</span>
+                    </div>
+                    <div class="live-badge">
+                        <span class="live-dot"></span> LIVE
+                    </div>
                 </div>
 
                 <div class="video-container" id="playerDisplay">
-                    <!-- Dynamic element rendered by JS -->
+                    <!-- Dynamic VideoJS Element -->
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 <strong>Home Of UEFA</strong>. Powered by <strong>Sports Hub Official</strong>.</p>
+        <p>© 2026 <strong>Home Of UEFA</strong>. Powered by <strong>Sports Hub Official</strong>. All Rights Reserved.</p>
     </footer>
 
     <!-- Video.js JS Library -->
@@ -318,52 +419,19 @@
     <script>
         let player = null;
 
-        // Channel Lineup
+        // Daftar Channel Baru Sesuai Permintaan
         const channels = [
             {
-                name: "CBC Sport Azerbaijan",
-                type: "m3u8",
-                src: "https://andro.evrenesoglu121.click/checklist/androstreamlivecbcs.m3u8"
+                name: "beIN Sports 2 Arabia",
+                src: "https://wqdfwqq.s3.us-east-2.amazonaws.com/bein2/720p/manifest.m3u8"
             },
             {
-                name: "beIN Sports 1 Arabia HD",
-                type: "m3u8",
-                src: "https://cp11.adabmedia.com/hls2/bein1.m3u8"
+                name: "Fox Sports 1 USA (Server 1)",
+                src: "https://footfytv.pro/proxy/direct?url=http://85.237.89.160:9590/usa-s/FOX-SPORTS-1/index.m3u8"
             },
             {
-                name: "Sony Sports Ten 1 HD",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://103.185.24.134:3001/SonyTenSports1/index.m3u8"
-            },
-            {
-                name: "Sony Sports Ten 2",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://103.151.60.162:2122/play/a01b/index.m3u8?hls"
-            },
-            {
-                name: "Sony Sports Ten 5 (576p)",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://103.151.60.162:2122/play/a028/index.m3u8?hls"
-            },
-            {
-                name: "SCTV",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/SCTV/tracks-v1a1/mono.m3u8"
-            },
-            {
-                name: "RCTI Digital FHD",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/RCTIHD/index.m3u8"
-            },
-            {
-                name: "GTV Digital FHD",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/GTVHD/index.m3u8"
-            },
-            {
-                name: "iNews Digital FHD",
-                type: "m3u8",
-                src: "https://footfytv.pro/proxy/direct?url=http://202.150.172.59/iNews/index.m3u8"
+                name: "Fox Sports 1 USA (Server 2)",
+                src: "https://tvsen7.aynascope.net/foxsports1/index.m3u8"
             }
         ];
 
@@ -374,24 +442,28 @@
         function switchChannel(index, btnElement) {
             const ch = channels[index];
             const display = document.getElementById("playerDisplay");
+            const titleDisplay = document.querySelector("#channelNameDisplay span");
 
-            // Update tab button UI
+            // Update nama channel di judul frame
+            if(titleDisplay) titleDisplay.innerText = ch.name;
+
+            // Highlight tombol aktif
             let btns = document.getElementsByClassName("channel-btn");
             for (let i = 0; i < btns.length; i++) {
                 btns[i].classList.remove("active");
             }
             if(btnElement) btnElement.classList.add("active");
 
-            // Dispose active Video.js player instance
+            // Hapus instansi player lama jika ada
             if (player) {
                 player.dispose();
                 player = null;
             }
 
-            // Clear display container
+            // Bersihkan kontainer
             display.innerHTML = "";
 
-            // Render Video.js Player for all channels
+            // Buat elemen video baru
             const videoElem = document.createElement("video");
             videoElem.id = "videojsPlayer";
             videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
@@ -400,6 +472,7 @@
             videoElem.preload = "auto";
             display.appendChild(videoElem);
 
+            // Inisialisasi Video.js
             player = videojs('videojsPlayer', {
                 autoplay: true,
                 controls: true,
@@ -412,21 +485,7 @@
                 type: "application/x-mpegURL"
             });
 
-            player.play().catch(e => console.log("Autoplay blocked:", e));
-        }
-
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            player.play().catch(e => console.log("Autoplay dihalangi oleh browser:", e));
         }
     </script>
 </body>
