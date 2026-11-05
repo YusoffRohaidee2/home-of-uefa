@@ -533,15 +533,18 @@
                             <i class="fa-solid fa-play"></i> beIN Sports 1 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(6, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 2 HD
+                            <i class="fa-solid fa-play"></i> beIN Sports 1 HD (Server 2)
                         </button>
                         <button class="channel-btn" onclick="switchChannel(7, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 3 HD
+                            <i class="fa-solid fa-play"></i> beIN Sports 2 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(8, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 4 HD
+                            <i class="fa-solid fa-play"></i> beIN Sports 3 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(9, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 4 HD
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(10, this)">
                             <i class="fa-solid fa-play"></i> beIN Sports 5 HD
                         </button>
                     </div>
@@ -551,10 +554,10 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> Persian Broadcast (Iran)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(10, this)">
+                        <button class="channel-btn" onclick="switchChannel(11, this)">
                             <i class="fa-solid fa-play"></i> IRIB TV3 Iran
                         </button>
-                        <button class="channel-btn" onclick="switchChannel(11, this)">
+                        <button class="channel-btn" onclick="switchChannel(12, this)">
                             <i class="fa-solid fa-play"></i> IRIB Varzesh Iran
                         </button>
                     </div>
@@ -564,7 +567,7 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> French Broadcast (France)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(12, this)">
+                        <button class="channel-btn" onclick="switchChannel(13, this)">
                             <i class="fa-solid fa-play"></i> L'Equipe FR
                         </button>
                     </div>
@@ -869,28 +872,33 @@
             },
             {
                 name: "beIN Sports 1 HD",
-                src: "https://10sisi.s3.us-east-2.amazonaws.com/bein1/720p/manifest.m3u8",
+                src: "https://cp11.adabmedia.com/hls2/bein1.m3u8",
                 playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 1 HD (Server 2)",
+                src: "https://10sisi.s3.us-east-2.amazonaws.com/bein1/720p/manifest.m3u8",
+                playerType: "hlsjs"
             },
             {
                 name: "beIN Sports 2 HD",
                 src: "https://10sisi.s3.us-east-2.amazonaws.com/bein2/720p/manifest.m3u8",
-                playerType: "videojs"
+                playerType: "hlsjs"
             },
             {
                 name: "beIN Sports 3 HD",
                 src: "https://10sisi.s3.us-east-2.amazonaws.com/bein3/720p/manifest.m3u8",
-                playerType: "videojs"
+                playerType: "hlsjs"
             },
             {
                 name: "beIN Sports 4 HD",
                 src: "https://10sisi.s3.us-east-2.amazonaws.com/bein4/720p/manifest.m3u8",
-                playerType: "videojs"
+                playerType: "hlsjs"
             },
             {
                 name: "beIN Sports 5 HD",
                 src: "https://10sisi.s3.us-east-2.amazonaws.com/bein5/720p/manifest.m3u8",
-                playerType: "videojs"
+                playerType: "hlsjs"
             },
             {
                 name: "IRIB TV3 Iran",
