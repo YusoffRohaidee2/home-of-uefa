@@ -429,12 +429,6 @@
             margin-bottom: 2px;
         }
 
-        .uefatv-tag {
-            background: rgba(255, 183, 0, 0.2);
-            border-color: var(--neon-gold);
-            color: var(--neon-gold);
-        }
-
         /* FOOTER */
         footer {
             background: rgba(10, 14, 26, 0.98);
@@ -511,15 +505,27 @@
                     <div class="language-header"><i class="fa-solid fa-globe"></i> English Broadcast (UK & USA)</div>
                     <div class="channel-selector">
                         <button class="channel-btn" onclick="switchChannel(1, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 1 UK
+                            <i class="fa-solid fa-play"></i> TNT Sports 1 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(2, this)">
-                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 1)
+                            <i class="fa-solid fa-play"></i> TNT Sports 2 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(3, this)">
-                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 2)
+                            <i class="fa-solid fa-play"></i> TNT Sports 3 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(4, this)">
+                            <i class="fa-solid fa-play"></i> TNT Sports 4 HD
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(5, this)">
+                            <i class="fa-solid fa-play"></i> TNT Sports 5 HD
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(6, this)">
+                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 1)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(7, this)">
+                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 2)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(8, this)">
                             <i class="fa-solid fa-play"></i> Fox Sports 2 USA
                         </button>
                     </div>
@@ -527,22 +533,13 @@
 
                 <!-- Arabic Broadcast -->
                 <div class="language-group">
-                    <div class="language-header"><i class="fa-solid fa-globe"></i> Arabic Broadcast (beIN Sports HD)</div>
+                    <div class="language-header"><i class="fa-solid fa-globe"></i> Arabic Broadcast (beIN Sports Arabia)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(5, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 1 HD
-                        </button>
-                        <button class="channel-btn" onclick="switchChannel(6, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 2 HD
-                        </button>
-                        <button class="channel-btn" onclick="switchChannel(7, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 3 HD
-                        </button>
-                        <button class="channel-btn" onclick="switchChannel(8, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 4 HD
-                        </button>
                         <button class="channel-btn" onclick="switchChannel(9, this)">
-                            <i class="fa-solid fa-play"></i> beIN Sports 5 HD
+                            <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia (Server 1)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(10, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia (Server 2)
                         </button>
                     </div>
                 </div>
@@ -551,10 +548,10 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> Persian Broadcast (Iran)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(10, this)">
+                        <button class="channel-btn" onclick="switchChannel(11, this)">
                             <i class="fa-solid fa-play"></i> IRIB TV3 Iran
                         </button>
-                        <button class="channel-btn" onclick="switchChannel(11, this)">
+                        <button class="channel-btn" onclick="switchChannel(12, this)">
                             <i class="fa-solid fa-play"></i> IRIB Varzesh Iran
                         </button>
                     </div>
@@ -564,7 +561,7 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> French Broadcast (France)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(12, this)">
+                        <button class="channel-btn" onclick="switchChannel(13, this)">
                             <i class="fa-solid fa-play"></i> L'Equipe FR
                         </button>
                     </div>
@@ -595,107 +592,6 @@
                 <p>Complete schedule of major UEFA tournament matches and fixtures (Malaysia Time MYT).</p>
             </div>
 
-            <!-- Futsal Finalissima 2026 -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> Futsal Finalissima 2026</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Saturday, 7 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>05:30</td>
-                        <td><span class="match-teams">Spain vs Portugal</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>08:30</td>
-                        <td><span class="match-teams">Brazil vs Argentina</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
-                    </tr>
-                </table>
-
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Monday, 9 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>01:30</td>
-                        <td><span class="match-teams">Third-place play-off</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:30</td>
-                        <td><span class="match-teams">Final</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- UEFA Europa League -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Europa League</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 6 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Milan vs Ferencváros</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 1</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Real Sociedad vs Olympique Lyonnais</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 3</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Crystal Palace vs Hoffenheim</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 4</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Sparta Praha vs AFC Bournemouth</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 5</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">AZ vs Juventus</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 1</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">Bayer Leverkusen vs Olympique Marseille</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 2</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">Celtic vs Beşiktaş</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 3</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">Sunderland vs Dinamo Zagreb</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 5</span></td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- UEFA Conference League -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-shield-halved"></i> UEFA Conference League</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 6 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Trabzonspor vs Freiburg</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 2</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">Monaco vs Nordsjælland</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 4</span></td>
-                    </tr>
-                </table>
-            </div>
-
             <!-- UEFA Women’s Champions League -->
             <div class="schedule-section">
                 <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Women’s Champions League</h3>
@@ -705,125 +601,126 @@
                     <tr class="row-item">
                         <td>04:00</td>
                         <td><span class="match-teams">PSG vs Bayern</span></td>
-                        <td><span class="channel-tag">L’Equipe FR</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>04:00</td>
-                        <td><span class="match-teams">Inter Milano vs Manchester City</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 2</span></td>
+                        <td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">L’Equipe FR</span></td>
                     </tr>
                 </table>
             </div>
 
-            <!-- UEFA Nations League & European Qualifiers -->
+            <!-- UEFA Nations League -->
             <div class="schedule-section">
-                <h3 class="league-title uefatv-header"><i class="fa-solid fa-flag"></i> UEFA Nations League</h3>
+                <h3 class="league-title"><i class="fa-solid fa-flag"></i> UEFA Nations League</h3>
                 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 13 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Armenia vs Cyprus</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Türkiye vs Belgium</span></td><td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Czechia vs Spain</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Albania vs Finland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Montenegro vs Latvia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">San Marino vs Belarus</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Italy vs France</span></td><td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">England vs Croatia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Turkey vs Belgium</span></td><td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">Fox Sports 1 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Italy vs France</span></td><td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">Fox Sports 1 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Czech Republic vs Spain</span></td><td><span class="channel-tag">IRIB Varzesh</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Saturday, 14 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Moldova vs Kazakhstan</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Luxembourg vs Estonia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Liechtenstein vs Azerbaijan</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Netherlands vs Greece</span></td><td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Scotland vs North Macedonia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Serbia vs Germany</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Slovakia vs Faroe Islands</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Bulgaria vs Iceland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Andorra vs Gibraltar</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Slovenia vs Switzerland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>22:00</td><td><span class="match-teams">Kosovo vs Israel</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Netherlands vs Greece</span></td><td><span class="channel-tag">IRIB Varzesh</span> <span class="channel-tag">Fox Sports 1 USA</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Sunday, 15 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Georgia vs Hungary</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Norway vs Wales</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Austria vs Republic of Ireland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Sweden vs Bosnia and Herzegovina</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Romania vs Poland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Portugal vs Denmark</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Northern Ireland vs Ukraine</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>22:00</td><td><span class="match-teams">Cyprus vs Montenegro</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>22:00</td><td><span class="match-teams">Latvia vs Armenia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Norway vs Wales</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Portugal vs Denmark</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
+                    <tr class="row-item"><td>22:00</td><td><span class="match-teams">Cyprus vs Montenegro</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Monday, 16 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Finland vs San Marino</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Belarus vs Albania</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">France vs Türkiye</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Belgium vs Italy</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Croatia vs Czechia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Spain vs England</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>23:00</td><td><span class="match-teams">Faroe Islands vs Moldova</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>23:00</td><td><span class="match-teams">Kazakhstan vs Slovakia</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">France vs Turkey</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
+                    <tr class="row-item"><td>23:00</td><td><span class="match-teams">Kazakhstan vs Slovakia</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Tuesday, 17 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Iceland vs Luxembourg</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Estonia vs Bulgaria</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Lithuania vs Liechtenstein</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Gibraltar vs Malta</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Germany vs Netherlands</span></td><td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Greece vs Serbia</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Switzerland vs Scotland</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">North Macedonia vs Slovenia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>01:00</td><td><span class="match-teams">Estonia vs Bulgaria</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Germany vs Netherlands</span></td><td><span class="channel-tag">Fox Sports 1 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Greece vs Serbia</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Wednesday, 18 November 2026</div>
                 <table class="schedule-table">
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Israel vs Austria</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Bosnia and Herzegovina vs Romania</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Denmark vs Norway</span></td><td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Poland vs Sweden</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Republic of Ireland vs Kosovo</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Ukraine vs Georgia</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Wales vs Portugal</span></td><td><span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
-                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Hungary vs Northern Ireland</span></td><td><span class="channel-tag">Fox Sports 2 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Denmark vs Norway</span></td><td><span class="channel-tag">Fox Sports 1 USA</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Hungary vs Northern Ireland</span></td><td><span class="channel-tag">Fox Sports 2 USA</span></td></tr>
                 </table>
-            </div>
 
-            <!-- UEFA Draw Events -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Draw</h3>
-                
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 20 November 2026</div>
                 <table class="schedule-table">
                     <tr class="row-item">
                         <td>19:00</td>
-                        <td><span class="match-teams">UNL Quarter-Finals and Play-Offs Draw</span></td>
-                        <td><span class="channel-tag">Fox Sports 1 USA</span> <span class="channel-tag uefatv-tag">UEFA.tv</span></td>
+                        <td><span class="match-teams">UEFA Nations League Play-Off Draw</span></td>
+                        <td><span class="channel-tag">Fox Sports 1 USA</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- UEFA Champions League -->
+            <div class="schedule-section">
+                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Champions League</h3>
+                
+                <div class="date-header"><i class="fa-regular fa-calendar"></i> Wednesday, 25 November 2026</div>
+                <table class="schedule-table">
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Galatasaray vs Aston Villa</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Bodø/Glimt vs LASK Linz</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Manchester City vs Napoli</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Real Madrid vs PSV</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Como vs AEK Athens</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Slovan Bratislava vs Real Betis</span></td><td><span class="channel-tag">TNT Sports 5</span></td></tr>
+                </table>
+
+                <div class="date-header"><i class="fa-regular fa-calendar"></i> Thursday, 26 November 2026</div>
+                <table class="schedule-table">
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Sabah vs Barcelona</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Slavia Praha vs Villarreal</span></td><td><span class="channel-tag">TNT Sports 5</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Sporting CP vs Manchester United</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Club Brugge vs Liverpool</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">PSG vs Roma</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                </table>
+            </div>
+
+            <!-- UEFA Europa League -->
+            <div class="schedule-section">
+                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Europa League</h3>
+                
+                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 27 November 2026</div>
+                <table class="schedule-table">
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Celta de Vigo vs AFC Bournemouth</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
+                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Olympiakos Piraeus vs Milan</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Crystal Palace vs Real Sociedad</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Sunderland vs Jagiellonia Białystok</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Torreense vs Celtic</span></td><td><span class="channel-tag">TNT Sports 3</span></td></tr>
+                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Juventus vs Omonia Nicosia</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
+                </table>
+            </div>
+
+            <!-- UEFA Conference League -->
+            <div class="schedule-section">
+                <h3 class="league-title"><i class="fa-solid fa-shield-halved"></i> UEFA Conference League</h3>
+                
+                <div class="date-header"><i class="fa-regular fa-calendar"></i> Thursday, 26 November 2026</div>
+                <table class="schedule-table">
+                    <tr class="row-item">
+                        <td>23:30</td>
+                        <td><span class="match-teams">Kairat vs Mjällby</span></td>
+                        <td><span class="channel-tag">TNT Sports 4</span></td>
                     </tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 27 November 2026</div>
                 <table class="schedule-table">
                     <tr class="row-item">
-                        <td>01:30</td>
-                        <td><span class="match-teams">U21 Final Tournament Draw</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
+                        <td>01:45</td>
+                        <td><span class="match-teams">Brighton & Hove Albion vs CSU Craiova</span></td>
+                        <td><span class="channel-tag">TNT Sports 2</span></td>
                     </tr>
-                </table>
-
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 18 December 2026</div>
-                <table class="schedule-table">
                     <tr class="row-item">
-                        <td>20:00</td>
-                        <td><span class="match-teams">UWCL Knockout Phase Draw</span></td>
-                        <td><span class="channel-tag uefatv-tag">UEFA.tv</span></td>
+                        <td>01:45</td>
+                        <td><span class="match-teams">Hearts vs Monaco</span></td>
+                        <td><span class="channel-tag">TNT Sports 3</span></td>
                     </tr>
                 </table>
             </div>
@@ -848,8 +745,28 @@
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 1 UK",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://bl.rutube.ru/livestream/3aa782bace452e7c4b9f81d767512147/index.m3u8?s=C2jhnJ0T8zzJxhLXRh5zgg&e=2090535629&scheme=https",
+                name: "TNT Sports 1 HD",
+                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495258.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "TNT Sports 2 HD",
+                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495259.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "TNT Sports 3 HD",
+                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495260.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "TNT Sports 4 HD",
+                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495261.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "TNT Sports 5 HD",
+                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495262.m3u8",
                 playerType: "videojs"
             },
             {
@@ -868,28 +785,13 @@
                 playerType: "videojs"
             },
             {
-                name: "beIN Sports 1 HD",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://10sisi.s3.us-east-2.amazonaws.com/bein1/720p/manifest.m3u8",
+                name: "beIN Sports 1 Arabia (Server 1)",
+                src: "https://tv.alziocell.my.id/proxy.php/proxy.php?url=https://cp11.adabmedia.com/hls2/bein1.m3u8",
                 playerType: "videojs"
             },
             {
-                name: "beIN Sports 2 HD",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://10sisi.s3.us-east-2.amazonaws.com/bein2/720p/manifest.m3u8",
-                playerType: "videojs"
-            },
-            {
-                name: "beIN Sports 3 HD",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://10sisi.s3.us-east-2.amazonaws.com/bein3/720p/manifest.m3u8",
-                playerType: "videojs"
-            },
-            {
-                name: "beIN Sports 4 HD",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://10sisi.s3.us-east-2.amazonaws.com/bein4/720p/manifest.m3u8",
-                playerType: "videojs"
-            },
-            {
-                name: "beIN Sports 5 HD",
-                src: "https://bluesky-proxy.joseph-yusoff.workers.dev/?url=https://10sisi.s3.us-east-2.amazonaws.com/bein5/720p/manifest.m3u8",
+                name: "beIN Sports 1 Arabia (Server 2)",
+                src: "https://tv.alziocell.my.id/proxy.php/proxy.php?url=https://balance.footballii.ir/hls2/bein1.m3u8",
                 playerType: "videojs"
             },
             {
