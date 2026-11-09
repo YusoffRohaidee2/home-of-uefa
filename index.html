@@ -336,12 +336,6 @@
             text-shadow: 2px 2px 4px #000;
         }
 
-        .uefatv-header {
-            color: var(--neon-gold);
-            border-bottom-color: var(--neon-gold);
-            text-shadow: 2px 2px 4px #000;
-        }
-
         .date-header {
             font-size: 1.05rem;
             font-weight: 700;
@@ -500,32 +494,55 @@
                     </div>
                 </div>
 
-                <!-- English Broadcast -->
+                <!-- Malaysia / Southeast Asia Broadcast -->
                 <div class="language-group">
-                    <div class="language-header"><i class="fa-solid fa-globe"></i> English Broadcast (UK & USA)</div>
+                    <div class="language-header"><i class="fa-solid fa-globe"></i> Malaysia Broadcast (beIN Sports)</div>
                     <div class="channel-selector">
                         <button class="channel-btn" onclick="switchChannel(1, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 1 HD
+                            <i class="fa-solid fa-play"></i> beIN SPORTS 1 Malaysia
                         </button>
                         <button class="channel-btn" onclick="switchChannel(2, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 2 HD
+                            <i class="fa-solid fa-play"></i> beIN SPORTS 2 Malaysia
                         </button>
                         <button class="channel-btn" onclick="switchChannel(3, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 3 HD
+                            <i class="fa-solid fa-play"></i> beIN SPORTS 3 Malaysia
                         </button>
+                    </div>
+                </div>
+
+                <!-- Sony Sports Network -->
+                <div class="language-group">
+                    <div class="language-header"><i class="fa-solid fa-globe"></i> Sony Sports HD Networks</div>
+                    <div class="channel-selector">
                         <button class="channel-btn" onclick="switchChannel(4, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 4 HD
+                            <i class="fa-solid fa-play"></i> Sony Sports Ten 1 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(5, this)">
-                            <i class="fa-solid fa-play"></i> TNT Sports 5 HD
+                            <i class="fa-solid fa-play"></i> Sony Sports Ten 2 HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(6, this)">
-                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 1)
+                            <i class="fa-solid fa-play"></i> Sony Sports Ten 3 Hindi HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(7, this)">
-                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 2)
+                            <i class="fa-solid fa-play"></i> Sony Sports Ten 4 Telugu HD
                         </button>
                         <button class="channel-btn" onclick="switchChannel(8, this)">
+                            <i class="fa-solid fa-play"></i> Sony Sports Ten 5 HD
+                        </button>
+                    </div>
+                </div>
+
+                <!-- English / USA Broadcast -->
+                <div class="language-group">
+                    <div class="language-header"><i class="fa-solid fa-globe"></i> English / USA Broadcast (Fox Sports)</div>
+                    <div class="channel-selector">
+                        <button class="channel-btn" onclick="switchChannel(9, this)">
+                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 1)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(10, this)">
+                            <i class="fa-solid fa-play"></i> Fox Sports 1 (Server 2)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(11, this)">
                             <i class="fa-solid fa-play"></i> Fox Sports 2 USA
                         </button>
                     </div>
@@ -535,11 +552,26 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> Arabic Broadcast (beIN Sports Arabia)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(9, this)">
+                        <button class="channel-btn" onclick="switchChannel(12, this)">
                             <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia (Server 1)
                         </button>
-                        <button class="channel-btn" onclick="switchChannel(10, this)">
+                        <button class="channel-btn" onclick="switchChannel(13, this)">
                             <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia (Server 2)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(14, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 1 Arabia (Server 3)
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(15, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 2 Arabia
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(16, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 5 Arabia
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(17, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 6 Arabia
+                        </button>
+                        <button class="channel-btn" onclick="switchChannel(18, this)">
+                            <i class="fa-solid fa-play"></i> beIN Sports 8 Arabia
                         </button>
                     </div>
                 </div>
@@ -548,10 +580,10 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> Persian Broadcast (Iran)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(11, this)">
+                        <button class="channel-btn" onclick="switchChannel(19, this)">
                             <i class="fa-solid fa-play"></i> IRIB TV3 Iran
                         </button>
-                        <button class="channel-btn" onclick="switchChannel(12, this)">
+                        <button class="channel-btn" onclick="switchChannel(20, this)">
                             <i class="fa-solid fa-play"></i> IRIB Varzesh Iran
                         </button>
                     </div>
@@ -561,7 +593,7 @@
                 <div class="language-group">
                     <div class="language-header"><i class="fa-solid fa-globe"></i> French Broadcast (France)</div>
                     <div class="channel-selector">
-                        <button class="channel-btn" onclick="switchChannel(13, this)">
+                        <button class="channel-btn" onclick="switchChannel(21, this)">
                             <i class="fa-solid fa-play"></i> L'Equipe FR
                         </button>
                     </div>
@@ -592,16 +624,50 @@
                 <p>Complete schedule of major UEFA tournament matches and fixtures (Malaysia Time MYT).</p>
             </div>
 
-            <!-- UEFA Women’s Champions League -->
+            <!-- Home of UEFA / UEFA Women’s Champions League -->
             <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Women’s Champions League</h3>
+                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> Home of UEFA — UEFA Women’s Champions League</h3>
                 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Wednesday, 11 November 2026</div>
                 <table class="schedule-table">
                     <tr class="row-item">
+                        <td>01:45</td>
+                        <td><span class="match-teams">Häcken vs Chelsea FC</span></td>
+                        <td><span class="channel-tag">beIN Sports Malaysia</span></td>
+                    </tr>
+                    <tr class="row-item">
                         <td>04:00</td>
                         <td><span class="match-teams">PSG vs Bayern</span></td>
-                        <td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">L’Equipe FR</span></td>
+                        <td><span class="channel-tag">beIN Sports Malaysia</span> <span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">L’Equipe FR</span></td>
+                    </tr>
+                    <tr class="row-item">
+                        <td>04:00</td>
+                        <td><span class="match-teams">Inter Milano vs Manchester City</span></td>
+                        <td><span class="channel-tag">beIN Sports 2 Malaysia</span> <span class="channel-tag">beIN Sports Arabia 2</span></td>
+                    </tr>
+                    <tr class="row-item">
+                        <td>04:00</td>
+                        <td><span class="match-teams">Roma vs Servette Chênois Féminin</span></td>
+                        <td><span class="channel-tag">beIN Sports 3 Malaysia</span></td>
+                    </tr>
+                </table>
+
+                <div class="date-header"><i class="fa-regular fa-calendar"></i> Thursday, 12 November 2026</div>
+                <table class="schedule-table">
+                    <tr class="row-item">
+                        <td>01:45</td>
+                        <td><span class="match-teams">OH Leuven vs Køge</span></td>
+                        <td><span class="channel-tag">beIN Sports 3 Malaysia</span></td>
+                    </tr>
+                    <tr class="row-item">
+                        <td>04:00</td>
+                        <td><span class="match-teams">Juventus vs OL Lyonnes</span></td>
+                        <td><span class="channel-tag">beIN Sports Malaysia</span> <span class="channel-tag">beIN Sports Arabia 2</span></td>
+                    </tr>
+                    <tr class="row-item">
+                        <td>04:00</td>
+                        <td><span class="match-teams">SL Benfica vs Austria Wien</span></td>
+                        <td><span class="channel-tag">beIN Sports 3 Malaysia</span></td>
                     </tr>
                 </table>
             </div>
@@ -615,6 +681,9 @@
                     <tr class="row-item"><td>01:00</td><td><span class="match-teams">Turkey vs Belgium</span></td><td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">Fox Sports 1 USA</span></td></tr>
                     <tr class="row-item"><td>03:45</td><td><span class="match-teams">Italy vs France</span></td><td><span class="channel-tag">beIN Sports Arabia 1</span> <span class="channel-tag">Fox Sports 1 USA</span></td></tr>
                     <tr class="row-item"><td>03:45</td><td><span class="match-teams">Czech Republic vs Spain</span></td><td><span class="channel-tag">IRIB Varzesh</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Albania vs Finland</span></td><td><span class="channel-tag">beIN Sports Arabia 5</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">San Marino vs Belarus</span></td><td><span class="channel-tag">beIN Sports Arabia 6</span></td></tr>
+                    <tr class="row-item"><td>03:45</td><td><span class="match-teams">Montenegro vs Latvia</span></td><td><span class="channel-tag">beIN Sports Arabia 8</span></td></tr>
                 </table>
 
                 <div class="date-header"><i class="fa-regular fa-calendar"></i> Saturday, 14 November 2026</div>
@@ -657,73 +726,6 @@
                     </tr>
                 </table>
             </div>
-
-            <!-- UEFA Champions League -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Champions League</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Wednesday, 25 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Galatasaray vs Aston Villa</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Bodø/Glimt vs LASK Linz</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Manchester City vs Napoli</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Real Madrid vs PSV</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Como vs AEK Athens</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Slovan Bratislava vs Real Betis</span></td><td><span class="channel-tag">TNT Sports 5</span></td></tr>
-                </table>
-
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Thursday, 26 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Sabah vs Barcelona</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Slavia Praha vs Villarreal</span></td><td><span class="channel-tag">TNT Sports 5</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Sporting CP vs Manchester United</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Club Brugge vs Liverpool</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">PSG vs Roma</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                </table>
-            </div>
-
-            <!-- UEFA Europa League -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-trophy"></i> UEFA Europa League</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 27 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Celta de Vigo vs AFC Bournemouth</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
-                    <tr class="row-item"><td>01:45</td><td><span class="match-teams">Olympiakos Piraeus vs Milan</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Crystal Palace vs Real Sociedad</span></td><td><span class="channel-tag">TNT Sports 1</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Sunderland vs Jagiellonia Białystok</span></td><td><span class="channel-tag">TNT Sports 2</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Torreense vs Celtic</span></td><td><span class="channel-tag">TNT Sports 3</span></td></tr>
-                    <tr class="row-item"><td>04:00</td><td><span class="match-teams">Juventus vs Omonia Nicosia</span></td><td><span class="channel-tag">TNT Sports 4</span></td></tr>
-                </table>
-            </div>
-
-            <!-- UEFA Conference League -->
-            <div class="schedule-section">
-                <h3 class="league-title"><i class="fa-solid fa-shield-halved"></i> UEFA Conference League</h3>
-                
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Thursday, 26 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>23:30</td>
-                        <td><span class="match-teams">Kairat vs Mjällby</span></td>
-                        <td><span class="channel-tag">TNT Sports 4</span></td>
-                    </tr>
-                </table>
-
-                <div class="date-header"><i class="fa-regular fa-calendar"></i> Friday, 27 November 2026</div>
-                <table class="schedule-table">
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Brighton & Hove Albion vs CSU Craiova</span></td>
-                        <td><span class="channel-tag">TNT Sports 2</span></td>
-                    </tr>
-                    <tr class="row-item">
-                        <td>01:45</td>
-                        <td><span class="match-teams">Hearts vs Monaco</span></td>
-                        <td><span class="channel-tag">TNT Sports 3</span></td>
-                    </tr>
-                </table>
-            </div>
         </section>
     </main>
 
@@ -745,28 +747,43 @@
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 1 HD",
-                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495258.m3u8",
+                name: "beIN SPORTS 1 Malaysia",
+                src: "https://footfytv.pro/proxy/direct?url=http://103.253.74.210:7070/stream/50/index.m3u8",
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 2 HD",
-                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495259.m3u8",
+                name: "beIN SPORTS 2 Malaysia",
+                src: "https://footfytv.pro/proxy/direct?url=http://103.253.74.210:7070/stream/51/index.m3u8",
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 3 HD",
-                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495260.m3u8",
+                name: "beIN SPORTS 3 Malaysia",
+                src: "https://footfytv.pro/proxy/direct?url=http://103.253.74.210:7070/stream/52/index.m3u8",
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 4 HD",
-                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495261.m3u8",
+                name: "Sony Sports Ten 1 HD",
+                src: "https://allinonereborn2.online/livtest3/stream_proxy.php?url=https%3A%2F%2Fallinonereborn2.online%2Fsony-new%2Fplaylists%2Fsony_ten1_hd.m3u8",
                 playerType: "videojs"
             },
             {
-                name: "TNT Sports 5 HD",
-                src: "https://footfytv.pro/proxy/direct?url=https://filex.me:8443/live/1234567/7654321/495262.m3u8",
+                name: "Sony Sports Ten 2 HD",
+                src: "https://allinonereborn2.online/livtest3/stream_proxy.php?url=https%3A%2F%2Fallinonereborn2.online%2Fsony-new%2Fplaylists%2Fsony_ten2_hd.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "Sony Sports Ten 3 Hindi HD",
+                src: "https://allinonereborn2.online/livtest3/stream_proxy.php?url=https%3A%2F%2Fallinonereborn2.online%2Fsony-new%2Fplaylists%2Fsony_ten3_hd.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "Sony Sports Ten 4 Telugu HD",
+                src: "https://allinonereborn2.online/livtest3/stream_proxy.php?url=https%3A%2F%2Fallinonereborn2.online%2Fsony-new%2Fplaylists%2Fsony_ten4_hd.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "Sony Sports Ten 5 HD",
+                src: "https://allinonereborn2.online/livtest3/stream_proxy.php?url=https%3A%2F%2Fallinonereborn2.online%2Fsony-new%2Fplaylists%2Fsony_ten5_hd.m3u8",
                 playerType: "videojs"
             },
             {
@@ -792,6 +809,31 @@
             {
                 name: "beIN Sports 1 Arabia (Server 2)",
                 src: "https://tv.alziocell.my.id/proxy.php/proxy.php?url=https://balance.footballii.ir/hls2/bein1.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 1 Arabia (Server 3)",
+                src: "https://plain-cell-3522.yusf-dara1000.workers.dev/?url=http://yusftsoreforver.ddns.net/live/ar/qa/bein/bein_sport_1_hd/index.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 2 Arabia",
+                src: "https://plain-cell-3522.yusf-dara1000.workers.dev/?url=http://yusftsoreforver.ddns.net/live/ar/qa/bein/bein_sport_2_hd/index.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 5 Arabia",
+                src: "https://plain-cell-3522.yusf-dara1000.workers.dev/?url=http://yusftsoreforver.ddns.net/live/ar/qa/bein/bein_sport_5_hd/index.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 6 Arabia",
+                src: "https://plain-cell-3522.yusf-dara1000.workers.dev/?url=http://yusftsoreforver.ddns.net/live/ar/qa/bein/bein_sport_6_hd/index.m3u8",
+                playerType: "videojs"
+            },
+            {
+                name: "beIN Sports 8 Arabia",
+                src: "https://plain-cell-3522.yusf-dara1000.workers.dev/?url=http://yusftsoreforver.ddns.net/live/ar/qa/bein/bein_sport_8_hd/index.m3u8",
                 playerType: "videojs"
             },
             {
@@ -852,49 +894,27 @@
             clearPlayers();
             display.innerHTML = "";
 
-            if (ch.playerType === "hlsjs") {
-                const videoElem = document.createElement("video");
-                videoElem.id = "nativeVideoPlayer";
-                videoElem.controls = true;
-                videoElem.autoplay = true;
-                videoElem.style.width = "100%";
-                videoElem.style.height = "100%";
-                display.appendChild(videoElem);
+            const videoElem = document.createElement("video");
+            videoElem.id = "videojsPlayer";
+            videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
+            videoElem.controls = true;
+            videoElem.autoplay = true;
+            videoElem.preload = "auto";
+            display.appendChild(videoElem);
 
-                if (Hls.isSupported()) {
-                    hlsPlayer = new Hls();
-                    hlsPlayer.loadSource(ch.src);
-                    hlsPlayer.attachMedia(videoElem);
-                    hlsPlayer.on(Hls.Events.MANIFEST_PARSED, function() {
-                        videoElem.play().catch(e => console.log("Autoplay blocked:", e));
-                    });
-                } else if (videoElem.canPlayType('application/vnd.apple.mpegurl')) {
-                    videoElem.src = ch.src;
-                    videoElem.play().catch(e => console.log("Autoplay blocked:", e));
-                }
-            } else {
-                const videoElem = document.createElement("video");
-                videoElem.id = "videojsPlayer";
-                videoElem.className = "video-js vjs-default-skin vjs-big-play-centered";
-                videoElem.controls = true;
-                videoElem.autoplay = true;
-                videoElem.preload = "auto";
-                display.appendChild(videoElem);
+            vjsPlayer = videojs('videojsPlayer', {
+                autoplay: true,
+                controls: true,
+                responsive: true,
+                liveui: true
+            });
 
-                vjsPlayer = videojs('videojsPlayer', {
-                    autoplay: true,
-                    controls: true,
-                    responsive: true,
-                    liveui: true
-                });
+            vjsPlayer.src({
+                src: ch.src,
+                type: "application/x-mpegURL"
+            });
 
-                vjsPlayer.src({
-                    src: ch.src,
-                    type: "application/x-mpegURL"
-                });
-
-                vjsPlayer.play().catch(e => console.log("Autoplay blocked:", e));
-            }
+            vjsPlayer.play().catch(e => console.log("Autoplay blocked:", e));
         }
     </script>
 </body>
